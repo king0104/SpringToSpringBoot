@@ -4,6 +4,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -17,12 +18,10 @@ import spring.WrongIdPasswordException;
 
 @Controller
 @RequestMapping("/login")
+@RequiredArgsConstructor
 public class LoginController {
-    private AuthService authService;
 
-    public void setAuthService(AuthService authService) {
-        this.authService = authService;
-    }
+    private final AuthService authService;
 
     @GetMapping
     public String form(LoginCommand loginCommand,

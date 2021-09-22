@@ -1,5 +1,6 @@
 package controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -13,14 +14,10 @@ import spring.MemberRegisterService;
 import spring.RegisterRequest;
 
 @Controller
+@RequiredArgsConstructor
 public class RegisterController {
 
-	private MemberRegisterService memberRegisterService;
-
-	public void setMemberRegisterService(
-			MemberRegisterService memberRegisterService) {
-		this.memberRegisterService = memberRegisterService;
-	}
+	private final MemberRegisterService memberRegisterService;
 
 	@RequestMapping("/register/step1")
 	public String handleStep1() {

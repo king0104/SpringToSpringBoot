@@ -1,15 +1,13 @@
 package spring;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class AuthService {
 
-	private MemberDao memberDao;
-
-	public void setMemberDao(MemberDao memberDao) {
-		this.memberDao = memberDao;
-	}
+	private final MemberDao memberDao;
 
 	public AuthInfo authenticate(String email, String password) {
 		Member member = memberDao.selectByEmail(email);

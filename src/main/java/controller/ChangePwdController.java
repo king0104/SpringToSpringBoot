@@ -2,6 +2,7 @@ package controller;
 
 import javax.servlet.http.HttpSession;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,14 +16,10 @@ import spring.WrongIdPasswordException;
 
 @Controller
 @RequestMapping("/edit/changePassword")
+@RequiredArgsConstructor
 public class ChangePwdController {
 
-	private ChangePasswordService changePasswordService;
-
-	public void setChangePasswordService(
-			ChangePasswordService changePasswordService) {
-		this.changePasswordService = changePasswordService;
-	}
+	private final ChangePasswordService changePasswordService;
 
 	@GetMapping
 	public String form(
